@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Bakhtawar ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    font-family:Poppins;
+    overflow:hidden;
+}
+
+/* INTRO */
+
+#intro{
+    height:100vh;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    color:white;
+}
+
+/* pigeons */
+
+.pigeon{
+    position:absolute;
+    font-size:28px;
+    animation:fly 7s linear infinite;
+}
+
+@keyframes fly{
+from{transform:translateX(-10vw);}
+to{transform:translateX(110vw);}
+}
+
+.teddy{
+    font-size:95px;
+    cursor:pointer;
+    transition:.4s;
+}
+
+.teddy:hover{
+    transform:scale(1.2);
+}
+
+/* MAIN */
+
+#main{
+    display:none;
+    height:100vh;
+    background:linear-gradient(135deg,#ff9ec4,#ffc0cb);
+    text-align:center;
+}
+
+/* typing */
+
+#typing{
+    margin-top:90px;
+    font-size:42px;
+    color:red;
+    font-family:Pacifico;
+}
+
+/* hearts */
+
+.heart{
+    position:absolute;
+    color:red;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+from{transform:translateY(-10vh);}
+to{transform:translateY(110vh);}
+}
+
+/* fireworks */
+
+.firework{
+    position:absolute;
+    font-size:20px;
+    animation:boom 1s ease-out forwards;
+}
+
+@keyframes boom{
+to{
+transform:scale(4);
+opacity:0;
+}
+}
+
+button{
+padding:12px 26px;
+border:none;
+border-radius:12px;
+background:red;
+color:white;
+font-size:18px;
+margin:8px;
+}
+
+/* cards */
+
+.card{
+background:white;
+padding:25px;
+border-radius:20px;
+width:85%;
+max-width:420px;
+margin:auto;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.section{
+display:none;
+}
+
+.big{
+font-size:38px;
+color:red;
+font-weight:bold;
+}
+
+/* slideshow */
+
+.slideshow img{
+width:100%;
+border-radius:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+
+<div id="intro">
+
+<div class="pigeon" style="top:20%">🕊</div>
+<div class="pigeon" style="top:60%;animation-delay:2s;">🕊</div>
+
+<div class="teddy" onclick="start()">🧸</div>
+<h2>Click Teddy ❤️</h2>
+
+</div>
+
+<!-- MUSIC -->
+
+<audio autoplay loop>
+<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_c8a3435332.mp3">
+</audio>
+
+<!-- MAIN -->
+
+<div id="main">
+
+<h1 id="typing"></h1>
+
+<button onclick="openGifts()">Open Surprise 🎁</button>
+
+<div id="gifts" class="section">
+
+<button onclick="showGift(1)">Gift 1</button>
+<button onclick="showGift(2)">Gift 2</button>
+<button onclick="showGift(3)">Gift 3</button>
+
+<!-- GIFT 1 -->
+
+<div id="gift1" class="section">
+<div class="card">
+
+Bakhtawar meri jan ilysmmmmm ye chota sa gift customize krrha hu apke liye ❤️
+<br><br>
+Bakhtawar really ilysmmmmm ye humara 2nd valentine hai ❤️
+<br><br>
+
+<div class="big">Hassan Loves Bakhtawar ❤️</div>
+
+<br>
+
+<button onclick="fireworks()">Unlock Special Message ✨</button>
+
+<p id="secret" style="display:none;">
+Happy Valentine's Day ❤️ Tum meri bohat special ho 🙂
+</p>
+
+</div>
+</div>
+
+<!-- GIFT 2 -->
+
+<div id="gift2" class="section">
+<div class="card">
+💐🍫  
+<p>For you ❤️</p>
+</div>
+</div>
+
+<!-- GIFT 3 -->
+
+<div id="gift3" class="section">
+<div class="card slideshow">
+
+<img id="slide" src="https://picsum.photos/400/300?1">
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* START */
+
+function start(){
+document.getElementById("intro").style.display="none";
+document.getElementById("main").style.display="block";
+
+typing();
+hearts();
+}
+
+/* typing animation */
+
+let text="Bakhtawar Loves Hassan ❤️";
+let i=0;
+
+function typing(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(typing,70);
+}
+}
+
+/* hearts */
+
+function hearts(){
+for(let i=0;i<25;i++){
+let h=document.createElement("div");
+h.innerHTML="❤";
+h.className="heart";
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(3+Math.random()*5)+"s";
+document.body.appendChild(h);
+}
+}
+
+/* gifts */
+
+function openGifts(){
+document.getElementById("gifts").style.display="block";
+}
+
+function showGift(n){
+document.getElementById("gift1").style.display="none";
+document.getElementById("gift2").style.display="none";
+document.getElementById("gift3").style.display="none";
+
+document.getElementById("gift"+n).style.display="block";
+}
+
+/* fireworks */
+
+function fireworks(){
+
+document.getElementById("secret").style.display="block";
+
+for(let i=0;i<15;i++){
+let f=document.createElement("div");
+f.innerHTML="✨";
+f.className="firework";
+
+f.style.left=Math.random()*100+"vw";
+f.style.top=Math.random()*100+"vh";
+
+document.body.appendChild(f);
+
+setTimeout(()=>f.remove(),1000);
+}
+}
+
+/* slideshow */
+
+let pics=[
+"https://picsum.photos/400/300?2",
+"https://picsum.photos/400/300?3",
+"https://picsum.photos/400/300?4"
+];
+
+let s=0;
+
+setInterval(()=>{
+let slide=document.getElementById("slide");
+if(slide){
+s=(s+1)%pics.length;
+slide.src=pics[s];
+}
+},2500);
+
+</script>
+
+</body>
+  </html>
